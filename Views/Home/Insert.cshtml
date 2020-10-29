@@ -1,0 +1,19 @@
+﻿@model  Bookshop.Models.Book
+@{
+    ViewBag.Title = "Insert";
+}
+
+<h2>Insert</h2>
+
+<div class="div container">
+
+    @using(Html.BeginForm("Insert", "Home", FormMethod.Post))
+    {
+        @Html.EditorFor(x => x);
+
+        <input type="submit" value="Insert" name="insertBook" />
+
+    }
+
+
+</div>
