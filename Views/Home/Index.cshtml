@@ -1,4 +1,5 @@
 ﻿@model  IEnumerable<Bookshop.Models.Book>
+
 @{
     ViewBag.Title = "Home Page";
 }
@@ -10,36 +11,46 @@
 <div class="row">
     <a href="@Url.Action("Insert", "Home")"> <input type="submit" value="+ Add Book" name="btn addBook" /></a>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <td>
-                    Id
+                    @Html.DisplayNameFor(model => model.Tittle)
                 </td>
                 <td>
-                    Title
+                    @Html.DisplayNameFor(model => model.Author)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.ProductionDate)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Category)
                 </td>
             </tr>
         </thead>
         <tbody>
+            @foreach (var item in Model)
+            {
             <tr>
                 <td>
-                    1
+                    @Html.DisplayFor(model => item.Tittle)
                 </td>
                 <td>
-                    Harry
+                    @Html.DisplayFor(model => item.Author)
                 </td>
-                
-                    @foreach (var item in Model)
-                    {
-                        <td>
-                            @item.IdBook
-                        </td>
-                        <td>
-                            @item.Tittle
-                        </td>
-                    }
+                <td>
+                    @Html.DisplayFor(model => item.ProductionDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Category)
+                </td>
+                <td>
+                    <a href="@Url.Action("Details", "Home", new { id = item.IdBook })"> <input type="submit" value="Details" name="btn detailsBook" /></a>
+                    <a href="@Url.Action("Delete", "Home", new { id = item.IdBook })"> <input type="submit" value="Detele" name="btn deleteBook" /></a>
+                </td>
             </tr>
+            }
+
 
         </tbody>
     </table>

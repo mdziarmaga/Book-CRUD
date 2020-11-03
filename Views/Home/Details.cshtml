@@ -1,0 +1,20 @@
+﻿@model Bookshop.Models.Book  
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<h4>
+    Details about book:
+</h4>
+<span>
+    <br />
+    @Html.DisplayNameFor(model => model.Tittle) @Html.DisplayFor(model => model.Tittle)
+    <br />
+    @Html.DisplayNameFor(model => model.Author) @Html.DisplayFor(model => model.Author)
+    <br />
+    @Html.DisplayNameFor(model => model.ProductionDate) @Html.DisplayFor(model => model.ProductionDate)
+    <br />
+    @Html.DisplayNameFor(model => model.Category) @Html.DisplayFor(model => model.Category)
+</span>

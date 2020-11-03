@@ -81,3 +81,6 @@ C:\Programowanie\Bookshop\obj\Debug\Bookshop.csproj.CoreCompileInputs.cache
 C:\Programowanie\Bookshop\obj\Debug\Bookshop.csproj.CopyComplete
 C:\Programowanie\Bookshop\obj\Debug\Bookshop.dll
 C:\Programowanie\Bookshop\obj\Debug\Bookshop.pdb
+C:\Programowanie\Bookshop\obj\Debug\Bookshop.Migrations.InitialCreate.resources
+C:\Programowanie\Bookshop\obj\Debug\Bookshop.csproj.GenerateResource.cache
+C:\Programowanie\Bookshop\obj\Debug\Bookshop.Migrations.secondMigration.resources
