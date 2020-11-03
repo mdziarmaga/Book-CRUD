@@ -42,26 +42,45 @@ namespace Bookshop.Controllers
             return View(book);
         }
 
-        //public ActionResult Delete(int? id)
-        //{
-        //    if(id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    var book = bookService.DeleteBook((int)id);
-        //    if(book == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(book);
-        //}
+        public ActionResult Update()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Update(int? id)
+        {
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var book = bookService.GetBookById((int)id);
+            if(book == null)
+            {
+                return HttpNotFound();
+            }
+            return View(book);
+        }
+
         [HttpPost]
-        public ActionResult Delete(int? id)
+        public ActionResult Update(Book book)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View("Update", book);
+            }
+            else 
+            {
+                bookService.UpdateBook(book.IdBook);
+                return RedirectToAction("Index");
+            }
+        }
+
+            public RedirectToRouteResult Delete(int? id)
         {
             if (id != null)
             {
                 bookService.DeleteBook((int)id);
-                
             }
             return RedirectToAction("Index");
         }
