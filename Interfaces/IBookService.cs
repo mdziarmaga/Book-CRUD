@@ -14,5 +14,6 @@ namespace Bookshop.Interfaces
         Book AddBook(Book book);
         Book DeleteBook(int id);
         Book UpdateBook(int id);
+        Book FindByTitle(string title);
     }
 }

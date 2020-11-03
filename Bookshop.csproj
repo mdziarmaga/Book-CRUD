@@ -184,6 +184,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Insert.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202010291625064_InitialCreate.resx">

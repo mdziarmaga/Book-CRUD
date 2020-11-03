@@ -1,0 +1,26 @@
+﻿@model Bookshop.Models.Book
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+
+<div class="div update">
+
+    @using(Html.BeginForm("Update", "Home", FormMethod.Post))
+    { 
+        @Html.DisplayNameFor(Model => Model.Tittle)
+        @Html.EditorFor(Model => Model.Tittle)
+        <br />
+        @Html.DisplayNameFor(Model => Model.Author)
+        @Html.EditorFor(Model => Model.Author)
+        <br />
+        @Html.DisplayNameFor(Model => Model.Category)
+        @Html.EditorFor(Model => Model.Category)
+        <br />
+        @Html.DisplayNameFor(Model => Model.ProductionDate)
+        @Html.EditorFor(Model => Model.ProductionDate)
+        <br />
+        <input type="submit" value="Cofirm" />
+    }
+</div>

@@ -3,6 +3,7 @@ using Bookshop.Interfaces;
 using Bookshop.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
@@ -38,12 +39,14 @@ namespace Bookshop.Services
             return bookContext.Books.FirstOrDefault(item => item.IdBook == id);
         }
 
-        public Book UpdateBook(int id)
+        public void UpdateBook(int id)
         {
-            var bookReplace =  bookContext.Books.FirstOrDefault(item => item.IdBook == id);
-            bookContext.Books.AddOrUpdate(bookReplace);
+            var bookReplace = bookContext.Books.FirstOrDefault(item => item.IdBook == id);
+            //bookContext.Books.AddOrUpdate(bookReplace);
+            bookContext.Entry(bookReplace).State = EntityState.Modified;
+            //bookContext.Books.AddOrUpdate(bookReplace);
             bookContext.SaveChanges();
-            return bookReplace;
+            //return res;
         }
     }
 }
