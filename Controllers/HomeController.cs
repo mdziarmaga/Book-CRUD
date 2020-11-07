@@ -1,27 +1,23 @@
-﻿using Bookshop.DataBase;
-using Bookshop.Interfaces;
+﻿using Bookshop.Interfaces;
 using Bookshop.Models;
 using Bookshop.Services;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Bookshop.Controllers
 {
     public class HomeController : Controller
     {
-        BookService bookService = new BookService();
-        
-        //private IBookService bookService;//= new BookService() ;
+        // BookService bookService = new BookService();
 
-   
-        //public HomeController(IBookService bookService)
-        //{
-        //    this.bookService = bookService;
-        //}
+        private readonly IBookService bookService; //= new BookService() ;
+
+
+        public HomeController(IBookService bookService)
+        {
+            this.bookService = bookService;
+        }
 
         public ActionResult Index()
         {
@@ -43,6 +39,11 @@ namespace Bookshop.Controllers
         }
 
         public ActionResult Update()
+        {
+            return View();
+        }
+
+        public ActionResult CheckBookOut()
         {
             return View();
         }

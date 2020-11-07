@@ -29,6 +29,11 @@ namespace Bookshop.Services
             return res;
         }
 
+        public Book FindByTitle(string title)
+        {
+            return (Book)bookContext.Books.Where(item => item.Tittle.Equals(title));
+        }
+
         public IQueryable<Book> GetAllBooks()
         {
             return bookContext.Books;
@@ -39,14 +44,14 @@ namespace Bookshop.Services
             return bookContext.Books.FirstOrDefault(item => item.IdBook == id);
         }
 
-        public void UpdateBook(int id)
+        public Book UpdateBook(int id)
         {
             var bookReplace = bookContext.Books.FirstOrDefault(item => item.IdBook == id);
             //bookContext.Books.AddOrUpdate(bookReplace);
             bookContext.Entry(bookReplace).State = EntityState.Modified;
             //bookContext.Books.AddOrUpdate(bookReplace);
             bookContext.SaveChanges();
-            //return res;
+            return bookReplace;//res;
         }
     }
 }

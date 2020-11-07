@@ -84,3 +84,11 @@ C:\Programowanie\Bookshop\obj\Debug\Bookshop.pdb
 C:\Programowanie\Bookshop\obj\Debug\Bookshop.Migrations.InitialCreate.resources
 C:\Programowanie\Bookshop\obj\Debug\Bookshop.csproj.GenerateResource.cache
 C:\Programowanie\Bookshop\obj\Debug\Bookshop.Migrations.secondMigration.resources
+C:\Programowanie\Bookshop\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Programowanie\Bookshop\bin\Unity.Abstractions.dll
+C:\Programowanie\Bookshop\bin\Unity.Container.dll
+C:\Programowanie\Bookshop\bin\Unity.Mvc5.dll
+C:\Programowanie\Bookshop\bin\System.Threading.Tasks.Extensions.dll
+C:\Programowanie\Bookshop\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Programowanie\Bookshop\bin\Unity.Abstractions.pdb
+C:\Programowanie\Bookshop\bin\Unity.Container.pdb
