@@ -9,10 +9,7 @@ namespace Bookshop.Controllers
 {
     public class HomeController : Controller
     {
-        // BookService bookService = new BookService();
-
-        private readonly IBookService bookService; //= new BookService() ;
-
+        private readonly IBookService bookService; 
 
         public HomeController(IBookService bookService)
         {
@@ -36,11 +33,6 @@ namespace Bookshop.Controllers
                 return HttpNotFound();
             }
             return View(book);
-        }
-
-        public ActionResult Update()
-        {
-            return View();
         }
 
         public ActionResult CheckBookOut()
@@ -107,7 +99,8 @@ namespace Bookshop.Controllers
             else
             {
                 bookService.AddBook(book);
-                return View("Insert");   
+                ModelState.Clear();
+                return View();   
             }
         }
 
