@@ -16,9 +16,24 @@ namespace Bookshop.Controllers
             this.bookService = bookService;
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
             return View(bookService.GetAllBooks().ToList());
+        }
+
+        [HttpPost]
+        public ActionResult Index(string searching)
+        {
+            if (!string.IsNullOrEmpty(searching))
+            {
+                return View(bookService.FindByTitle(searching));
+            }
+            else
+            {
+                return View(bookService.GetAllBooks().ToList());
+            }
+            
         }
 
         public ActionResult Details(int? id)
@@ -35,9 +50,9 @@ namespace Bookshop.Controllers
             return View(book);
         }
 
-        public ActionResult CheckBookOut()
+        public ActionResult CheckBookOut(int id)
         {
-            return View();
+            return View(bookService.GetBookById(id));
         }
 
         [HttpGet]
@@ -64,12 +79,12 @@ namespace Bookshop.Controllers
             }
             else 
             {
-                bookService.UpdateBook(book.IdBook);
+                bookService.UpdateBook(book);
                 return RedirectToAction("Index");
             }
         }
 
-            public RedirectToRouteResult Delete(int? id)
+        public RedirectToRouteResult Delete(int? id)
         {
             if (id != null)
             {

@@ -9,8 +9,13 @@
 </div>
 
 <div class="row">
-    <a href="@Url.Action("Insert", "Home")"> <input type="submit" value="+ Add Book" name="btn addBook" /></a>
 
+    <a href="@Url.Action("Insert", "Home")"> <input type="submit" value="+ Add Book" name="btn addBook" /></a>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        @Html.TextBox("searching");
+        <input type="submit" value="Search" />
+    }
     <table class="table">
         <thead>
             <tr>
@@ -31,25 +36,26 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(model => item.Tittle)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.Author)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.ProductionDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.Category)
-                </td>
-                <td>
-                    <a href="@Url.Action("Details", "Home", new { id = item.IdBook })"> <input type="submit" value="Details" name="btn detailsBook" /></a>
-                    <a href="@Url.Action("Delete", "Home", new { id = item.IdBook })"> <input type="submit" value="Detele" name="btn deleteBook" /></a>
-                  @*  <a href="@Url.Action("Update", "Home", new { id = item.IdBook })"> <input type="submit" value="Update" name="btn updateBook" /></a>*@
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => item.Tittle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Author)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.ProductionDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Category)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Details", "Home", new { id = item.IdBook })"> <input type="submit" value="Details" name="btn detailsBook" /></a>
+                        <a href="@Url.Action("Delete", "Home", new { id = item.IdBook })"> <input type="submit" value="Detele" name="btn deleteBook" /></a>
+                        <a href="@Url.Action("CheckBookOut", "Home", new { id = item.IdBook })"> <input type="submit" value="Check book out" name="btn checkBookOut" /></a>
+                        <a href="@Url.Action("Update", "Home", new { id = item.IdBook })"> <input type="submit" value="Update" name="btn updateBook" /></a>
+                    </td>
+                </tr>
             }
 
 

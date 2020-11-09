@@ -12,7 +12,7 @@ namespace Bookshop.Services
 {
     public class BookService : IBookService
     {
-        BookContext bookContext = new BookContext();
+         BookContext bookContext= new BookContext();
 
         public Book AddBook(Book book)
         {
@@ -29,9 +29,9 @@ namespace Bookshop.Services
             return res;
         }
 
-        public Book FindByTitle(string title)
+        public List<Book> FindByTitle(string title)
         {
-            return (Book)bookContext.Books.Where(item => item.Tittle.Equals(title));
+            return bookContext.Books.Where(item => item.Tittle.Equals(title)).ToList();
         }
 
         public IQueryable<Book> GetAllBooks()
@@ -44,14 +44,11 @@ namespace Bookshop.Services
             return bookContext.Books.FirstOrDefault(item => item.IdBook == id);
         }
 
-        public Book UpdateBook(int id)
+        public bool UpdateBook(Book book)
         {
-            var bookReplace = bookContext.Books.FirstOrDefault(item => item.IdBook == id);
-            //bookContext.Books.AddOrUpdate(bookReplace);
-            bookContext.Entry(bookReplace).State = EntityState.Modified;
-            //bookContext.Books.AddOrUpdate(bookReplace);
+            bookContext.Books.AddOrUpdate(book);
             bookContext.SaveChanges();
-            return bookReplace;//res;
+            return true;//res;
         }
     }
 }
