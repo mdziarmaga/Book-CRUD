@@ -14,5 +14,11 @@ namespace Bookshop.DataBase
         {
 
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<BookContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

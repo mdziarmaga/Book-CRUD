@@ -6,13 +6,19 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace Bookshop.Services
 {
     public class BookService : IBookService
     {
-         BookContext bookContext= new BookContext();
+        private readonly BookContext bookContext;
+
+        public BookService (BookContext bookContext)
+        {
+            this.bookContext = bookContext;
+        }
 
         public Book AddBook(Book book)
         {
@@ -44,11 +50,15 @@ namespace Bookshop.Services
             return bookContext.Books.FirstOrDefault(item => item.IdBook == id);
         }
 
-        public bool UpdateBook(Book book)
+        public  void UpdateBook(Book book1, int bookId)
         {
-            bookContext.Books.AddOrUpdate(book);
+            var bookToUpdate = bookContext.Books.FirstOrDefault(item => item.IdBook == bookId);
+
+            bookToUpdate.Author = book1.Author;
+            bookToUpdate.Category = book1.Category;
+            bookToUpdate.Tittle = book1.Tittle;
+            bookToUpdate.ProductionDate = book1.ProductionDate;
             bookContext.SaveChanges();
-            return true;//res;
         }
     }
 }

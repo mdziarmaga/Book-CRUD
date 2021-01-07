@@ -13,8 +13,7 @@ namespace Bookshop.Interfaces
         Book GetBookById(int i);
         Book AddBook(Book book);
         Book DeleteBook(int id);
-        bool UpdateBook(Book book);
+        void UpdateBook(Book book1, int bookId);
         List<Book> FindByTitle(string title);
-        
     }
 }

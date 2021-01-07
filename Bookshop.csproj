@@ -35,6 +35,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -150,9 +151,13 @@
     <Compile Include="Migrations\202010291625064_InitialCreate.designer.cs">
       <DependentUpon>202010291625064_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011022120399_secondMigration.cs" />
-    <Compile Include="Migrations\202011022120399_secondMigration.designer.cs">
-      <DependentUpon>202011022120399_secondMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202011231804311_checkOutBookList.cs" />
+    <Compile Include="Migrations\202011231804311_checkOutBookList.designer.cs">
+      <DependentUpon>202011231804311_checkOutBookList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012012001206_RentedBook.cs" />
+    <Compile Include="Migrations\202012012001206_RentedBook.designer.cs">
+      <DependentUpon>202012012001206_RentedBook.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
@@ -171,6 +176,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\CheckBookOut.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -192,20 +198,21 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Insert.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Update.cshtml" />
-    <Content Include="Views\Home\CheckBookOut.cshtml" />
+    <Content Include="Views\Home\FormPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202010291625064_InitialCreate.resx">
       <DependentUpon>202010291625064_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011022120399_secondMigration.resx">
-      <DependentUpon>202011022120399_secondMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011231804311_checkOutBookList.resx">
+      <DependentUpon>202011231804311_checkOutBookList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012012001206_RentedBook.resx">
+      <DependentUpon>202012012001206_RentedBook.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

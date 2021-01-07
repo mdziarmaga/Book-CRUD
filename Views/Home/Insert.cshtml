@@ -10,10 +10,7 @@
     @using(Html.BeginForm("Insert", "Home", FormMethod.Post))
     {
         @Html.EditorFor(x => x);
-
-        <input type="submit" value="Insert" name="insertBook" />
-
-    }
-
-
+        <br />
+        <input type="submit" value="Insert" name="insertBook" class="btn btn-success" />
+     }
 </div>

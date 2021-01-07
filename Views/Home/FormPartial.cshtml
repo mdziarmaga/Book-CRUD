@@ -1,0 +1,52 @@
+﻿@model  IEnumerable<Bookshop.Models.Book>
+@{
+
+    ViewBag.Title = "FormPartial";
+}
+
+<div id="tableDiv">
+    <table class="table table-dark table-hover">
+        <thead >
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Tittle)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Author)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.ProductionDate)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Category)
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => item.Tittle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Author)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.ProductionDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Category)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Update", "Home", new { id = item.IdBook })"> <input type="submit" value="Update" class="btn btn-primary" name="btn updateBook" /></a>
+                        <a href="@Url.Action("Details", "Home", new { id = item.IdBook })"> <input type="submit" value="Details" class="btn btn-info" name="btn detailsBook" /></a>
+                        <a href="@Url.Action("Delete", "Home", new { id = item.IdBook })"> <input type="submit" value="Detele" class="btn btn-danger" name="btn deleteBook" /></a>
+
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

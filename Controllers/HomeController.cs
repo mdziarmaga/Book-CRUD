@@ -1,6 +1,8 @@
 ﻿using Bookshop.Interfaces;
 using Bookshop.Models;
 using Bookshop.Services;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -16,13 +18,6 @@ namespace Bookshop.Controllers
             this.bookService = bookService;
         }
 
-        [HttpGet]
-        public ActionResult Index()
-        {
-            return View(bookService.GetAllBooks().ToList());
-        }
-
-        [HttpPost]
         public ActionResult Index(string searching)
         {
             if (!string.IsNullOrEmpty(searching))
@@ -33,7 +28,7 @@ namespace Bookshop.Controllers
             {
                 return View(bookService.GetAllBooks().ToList());
             }
-            
+
         }
 
         public ActionResult Details(int? id)
@@ -50,20 +45,15 @@ namespace Bookshop.Controllers
             return View(book);
         }
 
-        public ActionResult CheckBookOut(int id)
-        {
-            return View(bookService.GetBookById(id));
-        }
-
-        [HttpGet]
+        //[HttpGet]
         public ActionResult Update(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var book = bookService.GetBookById((int)id);
-            if(book == null)
+            if (book == null)
             {
                 return HttpNotFound();
             }
@@ -71,15 +61,17 @@ namespace Bookshop.Controllers
         }
 
         [HttpPost]
-        public ActionResult Update(Book book)
+        public ActionResult Update(int id, Book book)
         {
-            if(!ModelState.IsValid)
+            // var idbok = bookService.GetBookById((int)id);
+           // var book = bookService.GetBookById(id);
+            if (!ModelState.IsValid)
             {
                 return View("Update", book);
             }
-            else 
+            else
             {
-                bookService.UpdateBook(book);
+                bookService.UpdateBook(book, id);
                 return RedirectToAction("Index");
             }
         }

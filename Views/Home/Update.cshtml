@@ -7,20 +7,21 @@
 
 <div class="div update">
 
-    @using(Html.BeginForm("Update", "Home", FormMethod.Post))
-    { 
+    @using (Html.BeginForm("Update", "Home", FormMethod.Post))
+    {
+        <br />
         @Html.DisplayNameFor(Model => Model.Tittle)
         @Html.EditorFor(Model => Model.Tittle)
-        <br />
+        <br /> <br />
         @Html.DisplayNameFor(Model => Model.Author)
         @Html.EditorFor(Model => Model.Author)
-        <br />
+        <br /> <br />
         @Html.DisplayNameFor(Model => Model.Category)
         @Html.EditorFor(Model => Model.Category)
-        <br />
+        <br /> <br />
         @Html.DisplayNameFor(Model => Model.ProductionDate)
         @Html.EditorFor(Model => Model.ProductionDate)
-        <br />
-        <input type="submit" value="Cofirm" />
+        <br /> <br />
+        <input type="submit" value="Cofirm" class="btn btn-success" />
     }
 </div>

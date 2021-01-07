@@ -5,63 +5,20 @@
 }
 
 <div class="jumbotron">
-    <h1>Hello in Bookery</h1>
+    <h1>Book informations</h1>
 </div>
 
 <div class="row">
 
-    <a href="@Url.Action("Insert", "Home")"> <input type="submit" value="+ Add Book" name="btn addBook" /></a>
-    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
-    {
-        @Html.TextBox("searching");
-        <input type="submit" value="Search" />
+    <a href="@Url.Action("Insert", "Home")"> <input type="submit" value="+ Add Book" class="btn btn-success" name="btn addBook" /></a>
+
+    <div id="formDiv">
+         @using (Html.BeginForm("Index", "Home", FormMethod.Get)) {
+             @Html.TextBox("searching") ;
+             <input type="submit" value="Search" class="btn btn-secondary" id="confirmSearch"/>
     }
-    <table class="table">
-        <thead>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.Tittle)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.Author)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.ProductionDate)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.Category)
-                </td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(model => item.Tittle)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => item.Author)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => item.ProductionDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => item.Category)
-                    </td>
-                    <td>
-                        <a href="@Url.Action("Details", "Home", new { id = item.IdBook })"> <input type="submit" value="Details" name="btn detailsBook" /></a>
-                        <a href="@Url.Action("Delete", "Home", new { id = item.IdBook })"> <input type="submit" value="Detele" name="btn deleteBook" /></a>
-                        <a href="@Url.Action("CheckBookOut", "Home", new { id = item.IdBook })"> <input type="submit" value="Check book out" name="btn checkBookOut" /></a>
-                        <a href="@Url.Action("Update", "Home", new { id = item.IdBook })"> <input type="submit" value="Update" name="btn updateBook" /></a>
-                    </td>
-                </tr>
-            }
+    </div>
 
+    @Html.Partial("FormPartial",Model)
 
-        </tbody>
-    </table>
-
-
-
-</div>
+ </div>

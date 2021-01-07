@@ -7,13 +7,13 @@ namespace Bookshop.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class secondMigration : IMigrationMetadata
+    public sealed partial class RentedBook : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(secondMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RentedBook));
         
         string IMigrationMetadata.Id
         {
-            get { return "202011022120399_secondMigration"; }
+            get { return "202012012001206_RentedBook"; }
         }
         
         string IMigrationMetadata.Source
